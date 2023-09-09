@@ -16,6 +16,10 @@ function onLoginSubmit(event) {
 
     const username = loginInput.value;
     localStorage.setItem(USERNAME_KEY, username); // local storage에 username 저장
+    paintGreetings(username);
+}
+
+function paintGreetings(username) {
     // greeting.innerText = "Hello " + username;
     greeting.innerText = `Hello ${username}`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
@@ -30,6 +34,5 @@ if (savedUsername === null) {
 
 } else {
     // show the greetings
-    greeting.innerText = `Hello ${savedUsername}`;
-    greeting.classList.remove(HIDDEN_CLASSNAME);
+    paintGreetings(savedUsername);
 }
