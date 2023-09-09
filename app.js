@@ -3,6 +3,7 @@ const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden"; // 일반적으로 string만 포함된 변수는 이름을 대문자로 표기
+const USERNAME_KEY = "username";
 
 // 모든 EventListener function의 첫번째 argument는 항상 지금 막 벌어진 일들에 대한 정보가 됨
 function onLoginSubmit(event) {
@@ -14,9 +15,21 @@ function onLoginSubmit(event) {
     loginForm.classList.add(HIDDEN_CLASSNAME); // 폼 제출 후 폼 숨김 처리
 
     const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY, username); // local storage에 username 저장
     // greeting.innerText = "Hello " + username;
     greeting.innerText = `Hello ${username}`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-loginForm.addEventListener("submit", onLoginSubmit);
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if (savedUsername === null) {
+    // show the form 
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit", onLoginSubmit);
+
+} else {
+    // show the greetings
+    greeting.innerText = `Hello ${savedUsername}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
