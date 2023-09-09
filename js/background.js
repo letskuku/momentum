@@ -6,4 +6,4 @@ const bgImage = document.createElement("img");
 
 bgImage.src = `img/${chosenImage}`;
 
-document.body.appendChild(bgImage);
+document.body.appendChild(bgImage); // 제일 마지막에 삽입됨 (prepend: 제일 처음에 삽입됨)
