@@ -1,3 +1,43 @@
 .hidden {
     display: none;
 }
+
+body {
+    color: white;
+}
+
+#clock {
+    font-size: 800%;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+#greeting {
+    font-size: 500%;
+    text-align: center;
+    margin-top: 0px;
+}
+
+input {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    border-bottom: 3px solid white;
+    background-color: transparent
+}
+
+img {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left: 0px;
+    top: 0px;
+    right:0px;
+    bottom:0px;
+    z-index: -1;
+    opacity:100%;
+}
